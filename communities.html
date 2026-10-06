@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Community Directory</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--line:#e3e5e8;--tx:#1e1f22;--mut:#5c6068;--acc:#5865f2;--acc2:#4752c4;--inp:#f2f3f5;--sb:#c4c7cc;--sbh:#9da1a8;--sh:0 1px 2px rgba(0,0,0,.06);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a1b1e;--card:#232428;--line:#2e3035;--tx:#f2f3f5;--mut:#a3a6ad;--inp:#1a1b1e;--sh:none;--sb:#43464d;--sbh:#5d616b}}
+:root[data-theme="dark"]{--sb:#43464d;--sbh:#5d616b;--bg:#1a1b1e;--card:#232428;--line:#2e3035;--tx:#f2f3f5;--mut:#a3a6ad;--inp:#1a1b1e;--sh:none}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--sb) transparent}
+*::-webkit-scrollbar{width:10px;height:10px}
+*::-webkit-scrollbar-track{background:transparent}
+*::-webkit-scrollbar-thumb{background:var(--sb);border-radius:999px;border:3px solid transparent;background-clip:content-box}
+*::-webkit-scrollbar-thumb:hover{background:var(--sbh);background-clip:content-box;border:3px solid transparent}
+*::-webkit-scrollbar-corner{background:transparent}
+.db{scrollbar-gutter:stable}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 24px 64px}
+header{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;margin-bottom:28px}
+h1{margin:0;font-size:28px;letter-spacing:-.02em}
+.sub{color:var(--mut);margin:4px 0 0}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+input,textarea{font:inherit;color:var(--tx);background:var(--inp);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%;outline:none;transition:border .15s}
+input:focus,textarea:focus{border-color:var(--acc)}
+textarea{resize:vertical;min-height:84px}
+.search{width:200px}
+@media(max-width:560px){.search{flex:1 1 140px;width:auto}}
+.btn{font:inherit;font-weight:600;border:0;border-radius:10px;padding:10px 18px;cursor:pointer;background:var(--acc);color:#fff;transition:background .15s,transform .05s}
+.btn:hover{background:var(--acc2)}.btn:active{transform:scale(.98)}
+.btn.ghost{background:transparent;color:var(--tx);border:1px solid var(--line)}
+.btn.ghost:hover{background:var(--inp)}
+.btn.danger{background:transparent;color:#e5484d;border:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:pointer;box-shadow:var(--sh);transition:transform .15s,border-color .15s;display:flex;flex-direction:column;text-align:left;padding:0;font:inherit;color:inherit}
+.card:hover{transform:translateY(-3px);border-color:var(--acc)}
+.banner{height:110px}
+.body{padding:0 16px 16px;flex:1;display:flex;flex-direction:column}
+.av{width:52px;height:52px;border-radius:14px;margin-top:-26px;border:4px solid var(--card);display:grid;place-items:center;color:#fff;font-weight:700;font-size:20px}
+.name{font-weight:700;font-size:16px;margin:10px 0 4px;overflow-wrap:anywhere}
+.desc{color:var(--mut);font-size:13px;margin:0 0 16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+.meta{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--mut)}
+.dot{width:8px;height:8px;border-radius:50%;background:#23a55a}
+.sec{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);margin:0 0 12px}
+.people{margin-bottom:32px;display:none}
+.plist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.person{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;gap:12px;align-items:center;box-shadow:var(--sh)}
+.pav{width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;font-weight:700}
+.pn{font-weight:600;overflow-wrap:anywhere}
+.pl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);margin-top:6px}
+.pc{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.pc button{font:inherit;font-size:12px;color:var(--acc);background:var(--inp);border:1px solid var(--line);border-radius:999px;padding:2px 10px;cursor:pointer}
+.pc button:hover{border-color:var(--acc)}
+.empty{grid-column:1/-1;text-align:center;padding:72px 16px;border:1px dashed var(--line);border-radius:12px;color:var(--mut)}
+.empty b{display:block;color:var(--tx);font-size:18px;margin-bottom:6px}
+.veil{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.veil.on{display:flex}
+.modal{background:var(--card);border:1px solid var(--line);border-radius:16px;width:100%;max-width:480px;max-height:90vh;overflow:auto;padding:24px}
+.modal h2{margin:0 0 16px;font-size:20px}
+label{display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);margin:14px 0 6px}
+.hint{font-size:12px;color:var(--mut);margin-top:4px}
+.row{display:flex;gap:10px;justify-content:flex-end;margin-top:22px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{background:var(--inp);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px}
+#view{padding:0;display:flex;flex-direction:column;overflow:hidden;max-width:520px}
+.dh{display:flex;align-items:center;gap:16px;padding:24px 24px 18px}
+.dav{width:60px;height:60px;border-radius:16px;flex:none;display:grid;place-items:center;color:#fff;font-weight:700;font-size:24px}
+.dt{flex:1;min-width:0}
+.dt h2{margin:0 0 6px;font-size:22px;letter-spacing:-.01em;overflow-wrap:anywhere}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--mut);background:var(--inp);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.x{align-self:flex-start;background:transparent;border:0;color:var(--mut);font-size:26px;line-height:1;cursor:pointer;border-radius:8px;width:34px;height:34px}
+.x:hover{background:var(--inp);color:var(--tx)}
+.db{overflow:auto;padding:0 24px 20px;border-top:1px solid var(--line)}
+.dd{margin:18px 0 22px;color:var(--tx);white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}
+.db .sec{margin-bottom:10px}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px}
+.mem{display:flex;align-items:center;gap:10px;padding:8px 10px;background:var(--inp);border:1px solid var(--line);border-radius:10px;font-size:14px;min-width:0}
+.mem .pav{width:28px;height:28px;font-size:12px}
+.mem span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.df{display:flex;gap:10px;padding:16px 24px;border-top:1px solid var(--line)}
+.df .sp{flex:1}
+.btn.solid{background:#e5484d}.btn.solid:hover{background:#cf3a3f}
+.cq{font-weight:600;align-self:center}
+.card:focus-visible,.btn:focus-visible,.pc button:focus-visible,.x:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mem.hit{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 16%,var(--inp));font-weight:600;animation:hit 1.6s ease-out 2}
+@keyframes hit{0%,100%{box-shadow:0 0 0 0 transparent}40%{box-shadow:0 0 0 4px color-mix(in srgb,var(--acc) 35%,transparent)}}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:10px 18px;border-radius:10px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:20}
+.toast.on{opacity:1}
+.note{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--mut);font-size:13px;margin-bottom:20px;display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Community Directory</h1>
+      <p class="sub" id="count">Loading…</p>
+    </div>
+    <div class="bar">
+      <input class="search" id="qm" type="search" placeholder="Search members" aria-label="Search members">
+      <input class="search" id="q" type="search" placeholder="Search communities" aria-label="Search communities">
+      <button class="btn ghost" id="imp">Import</button>
+      <button class="btn ghost" id="exp">Export</button>
+      <button class="btn" id="add">+ Register community</button>
+      <input type="file" id="file" accept=".json,application/json" hidden>
+    </div>
+  </header>
+  <div class="note" id="note"></div>
+  <div class="people" id="people"><h3 class="sec">Members</h3><div class="plist" id="plist"></div></div>
+  <h3 class="sec" id="chead" style="display:none">Communities</h3>
+  <div class="grid" id="grid"></div>
+</div>
+
+<div class="veil" id="formV"><form class="modal" id="form" role="dialog" aria-modal="true" aria-label="Community form" onsubmit="return false">
+  <h2 id="ft">Register a community</h2>
+  <label for="fn">Name</label><input id="fn" maxlength="80" required placeholder="e.g. Bahir Dar Youth Club">
+  <label for="fd">Description</label><textarea id="fd" maxlength="400" required placeholder="What is this community about?"></textarea>
+  <label for="fm">Member names</label><textarea id="fm" style="min-height:130px" placeholder="One name per line, or separated by commas"></textarea>
+  <div class="hint" id="mc">0 members</div>
+  <div class="row"><button type="button" class="btn ghost" id="cancel">Cancel</button><button type="submit" class="btn" id="save">Save community</button></div>
+</form></div>
+
+<div class="veil" id="viewV"><div class="modal" id="view" role="dialog" aria-modal="true"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const $=id=>document.getElementById(id);
+let items=[],editId=null;
+const LK='communities-v1';
+function saveLocal(){try{localStorage.setItem(LK,JSON.stringify(items));return true}catch(e){toast('Could not save — browser storage is blocked or full');return false}}
+function loadLocal(){try{const v=JSON.parse(localStorage.getItem(LK)||'[]');items=Array.isArray(v)?v:[]}catch(e){items=[];$('note').textContent='Browser storage is unavailable, so nothing will be saved after you close the page.';$('note').style.display='block'}}
+const uid=()=>'c'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const names=t=>[...new Set(t.split(/[\n,]+/).map(s=>s.trim()).filter(Boolean))];
+const cnt=c=>(c.memberNames&&c.memberNames.length)||c.members||0;
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=n=>Number(n||0).toLocaleString();
+function hue(s){let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))%360;return h}
+function banner(s){const h=hue(s);return `background:linear-gradient(135deg,hsl(${h} 70% 55%),hsl(${(h+50)%360} 70% 40%))`}
+let tt;function toast(m){const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2600)}
+
+function render(){
+  const q=$('q').value.trim().toLowerCase(),qm=$('qm').value.trim().toLowerCase();
+  const list=items.filter(c=>!q||(c.name+' '+c.description).toLowerCase().includes(q));
+  const pm=new Map();
+  if(qm)for(const c of items)for(const n of c.memberNames||[])if(n.toLowerCase().includes(qm)){
+    const k=n.toLowerCase();if(!pm.has(k))pm.set(k,{n,cs:[]});pm.get(k).cs.push(c)}
+  const pl=[...pm.values()];
+  $('people').style.display=qm?'block':'none';
+  $('chead').style.display=qm&&list.length?'block':'none';
+  $('plist').innerHTML=!pl.length?'<div class="hint">No members found.</div>':pl.map(p=>`<div class="person"><div class="pav" style="${banner(p.n)}">${esc(p.n.charAt(0).toUpperCase())}</div><div><div class="pn">${esc(p.n)}</div><div class="pl">Member of</div><div class="pc">${p.cs.map(c=>`<button data-id="${esc(c.id)}" data-name="${esc(p.n)}">${esc(c.name)}</button>`).join('')}</div></div></div>`).join('');
+  $('count').textContent=items.length?`${items.length} ${items.length===1?'community':'communities'} registered`:'No communities yet';
+  $('grid').innerHTML=list.length?list.map(c=>`
+    <button class="card" data-id="${esc(c.id)}">
+      <div class="banner" style="${banner(c.name)}"></div>
+      <div class="body">
+        <div class="av" style="${banner(c.name)}">${esc(c.name.trim().charAt(0).toUpperCase())}</div>
+        <div class="name">${esc(c.name)}</div>
+        <p class="desc">${esc(c.description)}</p>
+        <div class="meta"><span class="dot"></span>${fmt(cnt(c))} ${cnt(c)===1?'member':'members'}</div>
+      </div></button>`).join('')
+    :qm&&!q?'':`<div class="empty"><b>${items.length?'No matches':'Nothing here yet'}</b>${items.length?'Try a different search.':'Click “Register community” to add the first one.'}</div>`;
+}
+
+function openView(id,hl){
+  const c=items.find(x=>x.id===id);if(!c)return;
+  const mn=c.memberNames||[],n=cnt(c);
+  $('view').innerHTML=`
+    <div class="dh">
+      <div class="dav" style="${banner(c.name)}">${esc(c.name.trim().charAt(0).toUpperCase())}</div>
+      <div class="dt"><h2>${esc(c.name)}</h2><span class="pill"><span class="dot"></span>${fmt(n)} ${n===1?'member':'members'}</span></div>
+      <button class="x" id="close" aria-label="Close">&times;</button>
+    </div>
+    <div class="db">
+      <p class="dd">${esc(c.description)}</p>
+      <h4 class="sec">Members${mn.length?` · ${mn.length}`:''}</h4>
+      ${mn.length?`<div class="mgrid">${mn.map(m=>`<div class="mem${hl&&m.toLowerCase()===hl.toLowerCase()?' hit':''}"><div class="pav" style="${banner(m)}">${esc(m.charAt(0).toUpperCase())}</div><span title="${esc(m)}">${esc(m)}</span></div>`).join('')}</div>`:'<div class="hint">No names recorded.</div>'}
+    </div>
+    <div class="df" id="df"><button class="btn danger" id="del">Delete</button><span class="sp"></span><button class="btn ghost" id="edit">Edit</button></div>`;
+  $('viewV').classList.add('on');
+  if(hl)setTimeout(()=>{const h=document.querySelector('#view .mem.hit');if(h)h.scrollIntoView({block:'center',behavior:'smooth'})},80);
+  $('close').onclick=()=>$('viewV').classList.remove('on');
+  $('edit').onclick=()=>{
+    editId=c.id;$('ft').textContent='Edit community';$('save').textContent='Save changes';
+    $('fn').value=c.name;$('fd').value=c.description;$('fm').value=mn.join('\n');upd();
+    $('viewV').classList.remove('on');$('formV').classList.add('on');$('fn').focus();
+  };
+  $('del').onclick=()=>{
+    $('df').innerHTML='<span class="cq">Delete this community?</span><span class="sp"></span><button class="btn ghost" id="no">Cancel</button><button class="btn solid" id="yes">Yes, delete</button>';
+    $('no').onclick=()=>openView(c.id,hl);
+    $('yes').onclick=()=>{items=items.filter(x=>x.id!==c.id);saveLocal();render();$('viewV').classList.remove('on');toast('Community deleted')};
+  };
+}
+
+$('grid').addEventListener('click',e=>{const b=e.target.closest('.card');if(b)openView(b.dataset.id)});
+$('plist').addEventListener('click',e=>{const b=e.target.closest('button');if(b)openView(b.dataset.id,b.dataset.name)});
+$('q').addEventListener('input',render);
+$('qm').addEventListener('input',render);
+function upd(){const n=names($('fm').value).length;$('mc').textContent=`${n} ${n===1?'member':'members'} · counted automatically from the names`}
+$('fm').addEventListener('input',upd);
+$('add').onclick=()=>{editId=null;$('form').reset();$('ft').textContent='Register a community';$('save').textContent='Save community';upd();$('formV').classList.add('on');$('fn').focus()};
+$('cancel').onclick=()=>$('formV').classList.remove('on');
+document.querySelectorAll('.veil').forEach(v=>v.addEventListener('mousedown',e=>{if(e.target===v)v.classList.remove('on')}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.veil').forEach(v=>v.classList.remove('on'))});
+
+$('form').addEventListener('submit',()=>{
+  const name=$('fn').value.trim(),description=$('fd').value.trim();
+  if(!name||!description){toast('Please fill in the name and description');return}
+  if(items.some(x=>x.id!==editId&&x.name.trim().toLowerCase()===name.toLowerCase())){toast('A community with this name already exists');return}
+  const memberNames=names($('fm').value);
+  const data={name,description,members:memberNames.length,memberNames};
+  if(editId){items=items.map(x=>x.id===editId?{...x,...data}:x);toast('Changes saved')}
+  else{items.unshift({id:uid(),...data,createdAt:Date.now()});toast('Community registered')}
+  saveLocal();render();$('formV').classList.remove('on');
+});
+
+/* Export / Import */
+$('exp').onclick=async()=>{
+  const text=JSON.stringify({app:'community-directory',version:1,exportedAt:new Date().toISOString(),communities:items.map(({name,description,memberNames})=>({name,description,memberNames:memberNames||[]}))},null,2);
+  if(!items.length){toast('Nothing to export yet');return}
+  const filename='communities.json';
+  // 1) native "Save as…" dialog (Chrome, Edge, Opera)
+  if(window.showSaveFilePicker){
+    try{
+      const h=await showSaveFilePicker({suggestedName:filename,types:[{description:'JSON file',accept:{'application/json':['.json']}}]});
+      const w=await h.createWritable();await w.write(text);await w.close();toast('Export saved');return;
+    }catch(e){if(e&&e.name==='AbortError')return}
+  }
+  // 2) the viewer's own save prompt
+  let dl=null;try{dl=await claude.use('downloads')}catch(e){}
+  if(dl){
+    try{await dl.save({filename,data:text});toast('Export saved');return}
+    catch(e){if(e&&e.code==='declined')return}
+  }
+  // 3) last resort: show the text so it can be copied into a .json file
+  $('view').innerHTML=`<div class="dh"><div class="dt"><h2>Export</h2><div class="hint">Your browser blocked the save dialog. Copy this text and paste it into a file named <b>communities.json</b>.</div></div><button class="x" id="close" aria-label="Close">&times;</button></div>
+    <div class="db" style="padding-top:16px"><textarea id="raw" readonly style="min-height:220px;font-family:ui-monospace,monospace;font-size:12px"></textarea></div>
+    <div class="df"><span class="sp"></span><button class="btn" id="cp">Copy</button></div>`;
+  $('raw').value=text;$('viewV').classList.add('on');
+  $('close').onclick=()=>$('viewV').classList.remove('on');
+  $('cp').onclick=async()=>{try{await navigator.clipboard.writeText(text);toast('Copied')}catch(e){$('raw').select();toast('Press Ctrl+C to copy')}};
+};
+$('imp').onclick=()=>$('file').click();
+$('file').addEventListener('change',async e=>{
+  const f=e.target.files[0];e.target.value='';if(!f)return;
+  try{
+    const j=JSON.parse(await f.text());
+    const arr=Array.isArray(j)?j:j.communities;
+    if(!Array.isArray(arr))throw 0;
+    const have=new Set(items.map(c=>c.name.trim().toLowerCase()));
+    let added=0,skipped=0;
+    for(const r of arr){
+      const name=String(r&&r.name||'').trim(),description=String(r&&r.description||'').trim();
+      if(!name||!description||have.has(name.toLowerCase())){skipped++;continue}
+      const memberNames=names((Array.isArray(r.memberNames)?r.memberNames:[]).map(String).join('\n'));
+      items.push({id:uid(),name,description,members:memberNames.length,memberNames,createdAt:Date.now()});
+      have.add(name.toLowerCase());added++;
+    }
+    saveLocal();render();
+    toast(`Imported ${added} ${added===1?'community':'communities'}`+(skipped?` · skipped ${skipped}`:''));
+  }catch(err){toast('That file isn’t a valid communities export')}
+});
+
+const lock=()=>{document.body.style.overflow=document.querySelector('.veil.on')?'hidden':''};
+document.querySelectorAll('.veil').forEach(v=>new MutationObserver(lock).observe(v,{attributes:true,attributeFilter:['class']}));
+loadLocal();render();
+</script>
+</body>
+</html>

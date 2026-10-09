@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Community Directory · Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--line:#e3e5e8;--tx:#1e1f22;--mut:#5c6068;--acc:#5865f2;--acc2:#4752c4;--inp:#f2f3f5;--sh:0 1px 2px rgba(0,0,0,.06);--ok:#23a55a;--warn:#c27c0e;--bad:#e5484d;--sb:#c4c7cc;--sbh:#9da1a8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a1b1e;--card:#232428;--line:#2e3035;--tx:#f2f3f5;--mut:#a3a6ad;--inp:#1a1b1e;--sh:none;--sb:#43464d;--sbh:#5d616b;--warn:#e0a030}}
+:root[data-theme="dark"]{--bg:#1a1b1e;--card:#232428;--line:#2e3035;--tx:#f2f3f5;--mut:#a3a6ad;--inp:#1a1b1e;--sh:none;--sb:#43464d;--sbh:#5d616b;--warn:#e0a030}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 24px 64px}
+header{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;margin-bottom:28px}
+h1{margin:0;font-size:28px;letter-spacing:-.02em}
+.sub{color:var(--mut);margin:4px 0 0}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+input,textarea{font:inherit;color:var(--tx);background:var(--inp);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%;outline:none;transition:border .15s}
+input:focus,textarea:focus{border-color:var(--acc)}
+input:disabled{opacity:.45}
+input[type=checkbox]{width:auto;accent-color:var(--acc)}
+textarea{resize:vertical;min-height:84px}
+.search{width:220px}
+.btn{font:inherit;font-weight:600;border:0;border-radius:10px;padding:10px 18px;cursor:pointer;background:var(--acc);color:#fff;transition:background .15s}
+.btn:hover{background:var(--acc2)}
+.btn.sm{padding:6px 12px;font-size:13px}
+.btn.ghost{background:transparent;color:var(--tx);border:1px solid var(--line)}
+.btn.ghost:hover{background:var(--inp)}
+.btn.ok{background:var(--ok)}.btn.bad{background:var(--bad)}
+.btn.danger{background:transparent;color:var(--bad);border:1px solid var(--line)}
+.btn:focus-visible,.card:focus-visible,.x:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:pointer;box-shadow:var(--sh);transition:transform .15s,border-color .15s;display:flex;flex-direction:column;text-align:left;padding:0;font:inherit;color:inherit}
+.card:hover{transform:translateY(-3px);border-color:var(--acc)}
+.banner{height:110px}
+.body{padding:0 16px 16px;flex:1;display:flex;flex-direction:column}
+.av{width:52px;height:52px;border-radius:14px;margin-top:-26px;border:4px solid var(--card);display:grid;place-items:center;color:#fff;font-weight:700;font-size:20px}
+.name{font-weight:700;font-size:16px;margin:10px 0 4px;overflow-wrap:anywhere}
+.desc{color:var(--mut);font-size:13px;margin:0 0 16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+.meta{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--mut)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.sec{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);margin:0 0 10px}
+.empty{grid-column:1/-1;text-align:center;padding:64px 16px;border:1px dashed var(--line);border-radius:12px;color:var(--mut)}
+.empty b{display:block;color:var(--tx);font-size:18px;margin-bottom:6px}
+.veil{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.veil.on{display:flex}
+.modal{background:var(--card);border:1px solid var(--line);border-radius:16px;width:100%;max-width:500px;max-height:90vh;overflow:auto;padding:24px}
+.modal h2{margin:0 0 6px;font-size:20px;overflow-wrap:anywhere}
+label{display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);margin:14px 0 6px}
+label.chk{text-transform:none;letter-spacing:0;font-weight:500;font-size:13px;margin:6px 0 0;display:flex;gap:6px;align-items:center;cursor:pointer}
+.hint{font-size:12px;color:var(--mut);margin-top:4px}
+.err{color:var(--bad);font-size:13px;margin-top:10px;min-height:1px}
+.row{display:flex;gap:10px;justify-content:flex-end;margin-top:22px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--mut);background:var(--inp);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.st{font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px;border:1px solid currentColor;text-transform:capitalize}
+.st.pending{color:var(--warn)}.st.approved{color:var(--ok)}.st.declined{color:var(--bad)}
+.x{float:right;background:transparent;border:0;color:var(--mut);font-size:26px;line-height:1;cursor:pointer;border-radius:8px;width:34px;height:34px}
+.x:hover{background:var(--inp);color:var(--tx)}
+.tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.tab{font:inherit;font-weight:600;font-size:14px;background:transparent;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer}
+.tab.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{background:var(--inp);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:13px;overflow-wrap:anywhere}
+.chip.no{color:var(--mut);font-style:italic}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:10px 18px;border-radius:10px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:20}
+.toast.on{opacity:1}
+.note{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--mut);font-size:13px;margin-bottom:20px}
+.mem{display:inline-block;margin:0 6px 6px 0;background:var(--inp);border:1px solid var(--line);border-radius:8px;padding:3px 10px;font-size:13px}
+*{scrollbar-width:thin;scrollbar-color:var(--sb) transparent}
+*::-webkit-scrollbar{width:10px;height:10px}
+*::-webkit-scrollbar-track{background:transparent}
+*::-webkit-scrollbar-thumb{background:var(--sb);border-radius:999px;border:3px solid transparent;background-clip:content-box}
+*::-webkit-scrollbar-thumb:hover{background:var(--sbh);background-clip:content-box;border:3px solid transparent}
+*::-webkit-scrollbar-corner{background:transparent}
+select{font:inherit;color:var(--tx);background:var(--inp);border:1px solid var(--line);border-radius:10px;padding:8px 12px;outline:none;cursor:pointer}
+select:focus{border-color:var(--acc)}
+.chg{font-size:11px;font-weight:700;color:var(--warn);border:1px solid currentColor;border-radius:999px;padding:0 7px;text-transform:none;letter-spacing:0;margin-left:6px;white-space:nowrap}
+.mem.add{border-color:var(--ok);color:var(--ok)}
+.mem.rem{border-color:var(--bad);color:var(--bad);text-decoration:line-through;opacity:.8}
+
+.req{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:var(--sh)}
+.req .top{display:flex;gap:10px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap}
+.req h3{margin:0;font-size:17px;overflow-wrap:anywhere}
+.req .by{font-size:13px;color:var(--mut);margin:2px 0 10px}
+.req p{margin:0 0 10px;color:var(--mut);font-size:14px;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.kv{display:grid;grid-template-columns:110px 1fr;gap:6px 12px;font-size:14px;margin-bottom:16px}
+.kv b{color:var(--mut);font-weight:600}.kv span{overflow-wrap:anywhere}
+.gate{max-width:380px;margin:12vh auto;padding:0 20px}
+</style>
+</head>
+<body>
+<div class="gate" id="gate" style="display:none">
+  <div class="modal" style="max-width:none">
+    <h2>Admin sign in</h2><div class="hint">Community Directory · reviewers only</div>
+    <form id="gf" onsubmit="return false">
+      <label for="gp">Admin passcode</label><input id="gp" type="password" autocomplete="current-password" required>
+      <div class="err" id="gerr"></div>
+      <div class="row"><button class="btn" type="submit">Sign in</button></div>
+    </form>
+  </div>
+</div>
+
+<div class="wrap" id="app" style="display:none">
+  <header>
+    <div><h1>Admin dashboard</h1><p class="sub" id="count"></p></div>
+    <div class="bar">
+      <input class="search" id="q" type="search" placeholder="Search name, member, sender" aria-label="Search">
+      <button class="btn ghost" id="imp">Import</button>
+      <button class="btn ghost" id="exp">Export all</button>
+      <button class="btn ghost" id="out">Sign out</button>
+      <input type="file" id="file" accept=".json,application/json" hidden>
+    </div>
+  </header>
+  <div class="tabs" style="justify-content:space-between;align-items:center"><div class="tabs" id="tabs" style="margin:0"></div>
+    <select id="sort" aria-label="Sort list"><option value="new">Newest first</option><option value="old">Oldest first</option><option value="upd">Recently updated</option><option value="az">Name A–Z</option><option value="za">Name Z–A</option><option value="most">Most members</option><option value="least">Fewest members</option><option value="sender">Sender A–Z</option></select></div>
+  <div id="list"></div>
+</div>
+
+<div class="veil" id="mv"><div class="modal" id="mb" role="dialog" aria-modal="true"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const $=id=>document.getElementById(id);
+const DB={get(k,d){try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){toast('Could not save — browser storage is blocked or full');return false}}};
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=p=>p+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const names=t=>[...new Set(t.split(/[\n,]+/).map(s=>s.trim()).filter(Boolean))];
+const fmt=n=>Number(n||0).toLocaleString();
+const cnt=c=>(c.memberNames||[]).length;
+const hue=s=>{let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))%360;return h};
+const grad=s=>{const h=hue(s);return `background:linear-gradient(135deg,hsl(${h} 70% 55%),hsl(${(h+50)%360} 70% 40%))`};
+const date=t=>new Date(t).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
+let tt;function toast(m){const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2800)}
+function openModal(html){$('mb').innerHTML=html;$('mv').classList.add('on');document.body.style.overflow='hidden';const x=$('mb').querySelector('[data-close]');if(x)x.onclick=closeModal}
+function closeModal(){$('mv').classList.remove('on');document.body.style.overflow=''}
+$('mv').addEventListener('mousedown',e=>{if(e.target===$('mv'))closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+/* Shared storage keys: cd_users (public accounts), cd_apps (all community submissions) */
+const snap=(a,t)=>({name:a.name,description:a.description,memberNames:[...(a.memberNames||[])],contact:{email:null,telegram:null,phone:null,...(a.contact||{})},savedAt:t||a.createdAt||Date.now()});
+/* versions = history of every submitted/edited version; published = what the public sees (set on approval) */
+const norm=a=>{if(!a.versions)a={...a,versions:[snap(a)]};if(a.status==='approved'&&a.published===undefined)a={...a,published:snap(a)};return a};
+const apps=()=>DB.get('cd_apps',[]).map(norm);
+const saveApps=a=>DB.set('cd_apps',a);
+const card=c=>`<button class="card" data-id="${esc(c.id)}"><div class="banner" style="${grad(c.name)}"></div><div class="body"><div class="av" style="${grad(c.name)}">${esc(c.name.trim().charAt(0).toUpperCase())}</div><div class="name">${esc(c.name)}</div><p class="desc">${esc(c.description)}</p><div class="meta"><span class="dot"></span>${fmt(cnt(c))} ${cnt(c)===1?'member':'members'}</div></div></button>`;
+
+/* CHANGE THIS before using the page for real. Client-side only — see note in chat. */
+const ADMIN_PASSCODE='admin123';
+let tab='pending',sortBy='new';
+const last=a=>a.versions[a.versions.length-1].savedAt;
+const SORTS={new:(a,b)=>b.createdAt-a.createdAt,old:(a,b)=>a.createdAt-b.createdAt,upd:(a,b)=>last(b)-last(a),
+  az:(a,b)=>a.name.localeCompare(b.name),za:(a,b)=>b.name.localeCompare(a.name),most:(a,b)=>cnt(b)-cnt(a),least:(a,b)=>cnt(a)-cnt(b),
+  sender:(a,b)=>((a.submittedBy&&a.submittedBy.name)||'').localeCompare((b.submittedBy&&b.submittedBy.name)||'')};
+$('sort').onchange=e=>{sortBy=e.target.value;render()};
+
+function gate(){
+  const ok=sessionStorage.getItem('cd_admin')==='1';
+  $('gate').style.display=ok?'none':'block';$('app').style.display=ok?'block':'none';
+  if(ok)render();else $('gp').focus();
+}
+$('gf').addEventListener('submit',()=>{
+  if($('gp').value===ADMIN_PASSCODE){sessionStorage.setItem('cd_admin','1');$('gp').value='';$('gerr').textContent='';gate()}
+  else $('gerr').textContent='Wrong passcode.';
+});
+$('out').onclick=()=>{sessionStorage.removeItem('cd_admin');gate()};
+
+const chipC=(l,v,href)=>v?`<span class="chip">${l}: ${href?`<a href="${esc(href)}" style="color:var(--acc)">${esc(v)}</a>`:esc(v)}</span>`:`<span class="chip no">${l}: none</span>`;
+const contacts=c=>{c=c||{};return chipC('Email',c.email,c.email&&'mailto:'+c.email)+chipC('Telegram',c.telegram,c.telegram&&'https://t.me/'+c.telegram.slice(1))+chipC('Phone',c.phone,c.phone&&'tel:'+c.phone.replace(/[^\d+]/g,''))};
+const sender=a=>a.submittedBy?`${esc(a.submittedBy.name)}${a.submittedBy.email?` (${esc(a.submittedBy.email)})`:''}`:'Unknown';
+
+function render(){
+  const all=apps(),q=$('q').value.trim().toLowerCase();
+  const n=s=>all.filter(a=>a.status===s).length;
+  $('count').textContent=`${n('pending')} awaiting review · ${n('approved')} approved · ${n('declined')} declined`;
+  $('tabs').innerHTML=['pending','approved','declined'].map(s=>`<button class="tab${tab===s?' on':''}" data-t="${s}">${s[0].toUpperCase()+s.slice(1)} (${n(s)})</button>`).join('');
+  const hay=a=>[a.name,a.description,a.submittedBy&&a.submittedBy.name,a.submittedBy&&a.submittedBy.email,...(a.memberNames||[])].join(' ').toLowerCase();
+  const list=all.filter(a=>a.status===tab&&(!q||hay(a).includes(q))).sort(SORTS[sortBy]);
+  $('list').innerHTML=list.length?list.map(a=>`<div class="req" data-id="${esc(a.id)}">
+    <div class="top"><div><h3>${esc(a.name)}</h3><div class="by">Sent by <b>${sender(a)}</b> · ${date(a.createdAt)} · ${fmt(cnt(a))} members${a.versions.length>1?` <span class="chg">edited · v${a.versions.length}</span>`:''}</div></div><span class="st ${a.status}">${a.status}</span></div>
+    <p>${esc(a.description)}</p><div class="chips">${contacts(a.contact)}</div>
+    <div class="acts">${a.status!=='approved'?'<button class="btn ok sm" data-a="approve">Approve</button>':''}${a.status!=='declined'?'<button class="btn bad sm" data-a="decline">Decline</button>':''}<button class="btn ghost sm" data-a="view">Details</button></div></div>`).join('')
+    :`<div class="empty"><b>${q?'No matches':'Nothing here'}</b>${tab==='pending'&&!q?'No applications waiting for review.':''}</div>`;
+}
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(b){tab=b.dataset.t;render()}});
+$('q').addEventListener('input',render);
+
+function setStatus(id,status,reason){
+  const all=apps().map(a=>a.id===id?{...a,status,reason:status==='declined'?(reason||''):'',reviewedAt:Date.now(),published:status==='approved'?snap(a,Date.now()):null}:a);
+  if(saveApps(all)){render();toast(status==='approved'?'Approved — now public':status==='declined'?'Declined':'Moved back to pending')}
+}
+function declineModal(id){
+  openModal(`<h2>Decline this application?</h2><div class="hint">The reason (optional) is shown to the sender.</div>
+    <label for="dr">Reason</label><textarea id="dr" maxlength="300" placeholder="e.g. Contact details could not be verified"></textarea>
+    <div class="row"><button class="btn ghost" id="dn">Cancel</button><button class="btn bad" id="dy">Decline</button></div>`);
+  $('dn').onclick=closeModal;$('dy').onclick=()=>{setStatus(id,'declined',$('dr').value.trim());closeModal()};
+}
+function vBody(a,i){
+  const v=a.versions[i],p=i>0?a.versions[i-1]:null;
+  const tag=k=>p&&JSON.stringify(v[k])!==JSON.stringify(p[k])?'<span class="chg">changed</span>':'';
+  const pm=new Set(p?p.memberNames:[]),cm=new Set(v.memberNames),rem=p?p.memberNames.filter(x=>!cm.has(x)):[];
+  return `<div class="kv"><b>Name</b><span>${esc(v.name)} ${tag('name')}</span><b>Contact</b><span class="chips">${contacts(v.contact)} ${tag('contact')}</span></div>
+    <h4 class="sec">Description ${tag('description')}</h4><p style="white-space:pre-wrap;overflow-wrap:anywhere;margin:0 0 16px">${esc(v.description)}</p>
+    <h4 class="sec">Members · ${v.memberNames.length} ${tag('memberNames')}</h4><div>${v.memberNames.length||rem.length?v.memberNames.map(x=>`<span class="mem${p&&!pm.has(x)?' add':''}">${esc(x)}</span>`).join('')+rem.map(x=>`<span class="mem rem">${esc(x)}</span>`).join(''):'<div class="hint">No names recorded.</div>'}</div>
+    ${p?`<div class="hint" style="margin-top:8px">Compared with v${i}: green = added, red struck-through = removed.</div>`:''}`;
+}
+function detail(id){
+  const a=apps().find(x=>x.id===id);if(!a)return;
+  const n=a.versions.length;
+  openModal(`<button class="x" data-close aria-label="Close">&times;</button><h2>${esc(a.name)}</h2>
+    <div style="margin:6px 0 16px"><span class="st ${a.status}">${a.status}</span>${a.published&&a.status!=='approved'?' <span class="hint">· previous approved version is still public</span>':''}</div>
+    <div class="kv"><b>Sender</b><span>${sender(a)}</span><b>Submitted</b><span>${date(a.versions[0].savedAt)}</span>${n>1?`<b>Last edited</b><span>${date(last(a))}</span>`:''}${a.reason?`<b>Decline reason</b><span>${esc(a.reason)}</span>`:''}</div>
+    ${n>1?`<h4 class="sec">Versions</h4><div class="tabs" id="vt">${a.versions.map((v,i)=>`<button class="tab${i===n-1?' on':''}" data-v="${i}" title="${date(v.savedAt)}">v${i+1} · ${i===0?'original':i===n-1?'latest':date(v.savedAt)}</button>`).join('')}</div>`:''}
+    <div id="vb">${vBody(a,n-1)}</div>
+    <div class="row" style="justify-content:space-between"><button class="btn danger" id="dl">Delete</button><span style="display:flex;gap:8px;flex-wrap:wrap">
+    ${a.status!=='pending'?'<button class="btn ghost" id="pd">Move to pending</button>':''}${a.status!=='declined'?'<button class="btn bad" id="dc">Decline</button>':''}${a.status!=='approved'?'<button class="btn ok" id="ap">Approve</button>':''}</span></div>`);
+  if($('vt'))$('vt').onclick=e=>{const b=e.target.closest('[data-v]');if(!b)return;const i=+b.dataset.v;
+    $('vt').querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===b));$('vb').innerHTML=vBody(a,i)};
+  const on=(i,f)=>{if($(i))$(i).onclick=f};
+  on('ap',()=>{setStatus(id,'approved');closeModal()});
+  on('dc',()=>declineModal(id));
+  on('pd',()=>{setStatus(id,'pending');closeModal()});
+  on('dl',()=>{$('dl').textContent='Click again to confirm';$('dl').onclick=()=>{if(saveApps(apps().filter(x=>x.id!==id))){closeModal();render();toast('Deleted')}}});
+}
+$('list').addEventListener('click',e=>{
+  const b=e.target.closest('[data-a]'),r=e.target.closest('.req');if(!b||!r)return;
+  const id=r.dataset.id,a=b.dataset.a;
+  if(a==='approve')setStatus(id,'approved');else if(a==='decline')declineModal(id);else detail(id);
+});
+
+/* Export / Import — format v2 (full backup). v1 files (name, description, memberNames only) still import as approved. */
+$('exp').onclick=async()=>{
+  const all=apps();
+  if(!all.length){toast('Nothing to export yet');return}
+  const key=v=>JSON.stringify([v.name,v.description,v.memberNames,v.contact]);
+  const text=JSON.stringify({app:'community-directory',version:2,exportedAt:new Date().toISOString(),communities:all.map(a=>({
+    name:a.name,description:a.description,memberNames:a.memberNames||[],contact:a.contact,status:a.status,reason:a.reason||undefined,
+    publishedVersion:a.published?(a.versions.findIndex(v=>key(v)===key(a.published))+1||null):null,
+    submittedBy:a.submittedBy?{name:a.submittedBy.name,email:a.submittedBy.email}:undefined,createdAt:a.createdAt,versions:a.versions}))},null,2);
+  if(window.showSaveFilePicker){
+    try{const h=await showSaveFilePicker({suggestedName:'communities.json',types:[{description:'JSON',accept:{'application/json':['.json']}}]});const w=await h.createWritable();await w.write(text);await w.close();toast('Export saved');return}
+    catch(e){if(e&&e.name==='AbortError')return}
+  }
+  const l=document.createElement('a');l.href=URL.createObjectURL(new Blob([text],{type:'application/json'}));l.download='communities.json';l.click();setTimeout(()=>URL.revokeObjectURL(l.href),1000);toast('Export downloaded');
+};
+$('imp').onclick=()=>$('file').click();
+$('file').addEventListener('change',async e=>{
+  const f=e.target.files[0];e.target.value='';if(!f)return;
+  try{
+    const j=JSON.parse(await f.text()),arr=Array.isArray(j)?j:j.communities;if(!Array.isArray(arr))throw 0;
+    const all=apps(),have=new Set(all.map(c=>c.name.trim().toLowerCase()));let added=0,skipped=0;
+    const mk=v=>({name:String(v.name||'').trim(),description:String(v.description||'').trim(),memberNames:names((Array.isArray(v.memberNames)?v.memberNames:[]).map(String).join('\n')),
+      contact:{email:(v.contact&&v.contact.email)||null,telegram:(v.contact&&v.contact.telegram)||null,phone:(v.contact&&v.contact.phone)||null},savedAt:Number(v.savedAt)||Date.now()});
+    for(const r of arr){
+      if(!r)continue;
+      const vs=(Array.isArray(r.versions)?r.versions:[r]).map(mk).filter(v=>v.name&&v.description);
+      if(!vs.length){skipped++;continue}
+      const cur=vs[vs.length-1];
+      if(have.has(cur.name.toLowerCase())){skipped++;continue}
+      const status=['pending','approved','declined'].includes(r.status)?r.status:'approved';
+      const pv=Number(r.publishedVersion);
+      const published=Number.isInteger(pv)&&pv>=1&&pv<=vs.length&&status!=='declined'?snap(vs[pv-1],Date.now()):status==='approved'?snap(cur,Date.now()):null;
+      all.push({id:uid('c'),name:cur.name,description:cur.description,memberNames:cur.memberNames,contact:cur.contact,status,reason:status==='declined'?String(r.reason||''):'',published,
+        submittedBy:r.submittedBy&&r.submittedBy.name?{name:String(r.submittedBy.name),email:r.submittedBy.email?String(r.submittedBy.email):''}:{name:'Imported by admin'},
+        createdAt:Number(r.createdAt)||vs[0].savedAt,versions:vs});
+      have.add(cur.name.toLowerCase());added++;
+    }
+    if(saveApps(all)){render();toast(`Imported ${added} ${added===1?'community':'communities'}`+(skipped?` · skipped ${skipped}`:''))}
+  }catch(err){toast('That file isn’t a valid communities export')}
+});
+window.addEventListener('storage',()=>{if(sessionStorage.getItem('cd_admin')==='1')render()});
+gate();
+</script>
+</body>
+</html>

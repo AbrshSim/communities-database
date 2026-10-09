@@ -1,6 +1,7 @@
 {
   "app": "community-directory",
-  "version": 1,
+  "version": 2,
+  "exportedAt": "2026-10-06T10:00:00.000Z",
   "communities": [
     {
       "name": "Riverside Football Club",
@@ -26,11 +27,57 @@
         "Jamal Rahman",
         "Mateo Bello",
         "Ivan Nair"
+      ],
+      "contact": {
+        "email": "daniel.bekele@gmail.com",
+        "telegram": "@riverside_fc",
+        "phone": "+251 911 000 101"
+      },
+      "status": "approved",
+      "publishedVersion": 1,
+      "submittedBy": {
+        "name": "Daniel Bekele",
+        "email": "daniel.bekele@gmail.com"
+      },
+      "createdAt": 1786096800000,
+      "versions": [
+        {
+          "name": "Riverside Football Club",
+          "description": "A neighborhood football club that trains twice a week and plays friendly matches against nearby districts. All ages and skill levels are welcome.",
+          "memberNames": [
+            "Daniel Bekele",
+            "Samuel Tadesse",
+            "Yonas Alemu",
+            "Miguel Santos",
+            "Kwame Mensah",
+            "Tariq Hassan",
+            "Luca Romano",
+            "Daniel Yusuf",
+            "Selam Reyes",
+            "Mira Alvarez",
+            "Aisha Kim",
+            "Bruk Ortega",
+            "Ivan Yusuf",
+            "Daniel Reyes",
+            "Uma Lindqvist",
+            "Tess Kowalski",
+            "Kofi Kim",
+            "Jamal Rahman",
+            "Mateo Bello",
+            "Ivan Nair"
+          ],
+          "contact": {
+            "email": "daniel.bekele@gmail.com",
+            "telegram": "@riverside_fc",
+            "phone": "+251 911 000 101"
+          },
+          "savedAt": 1786096800000
+        }
       ]
     },
     {
       "name": "Young Coders Circle",
-      "description": "Weekly meetups where teenagers and beginners learn programming, build small projects and help each other with homework.",
+      "description": "Weekly meetups where teenagers and beginners learn programming, build small projects and help each other with homework. New: Saturday robotics sessions for beginners.",
       "memberNames": [
         "Hana Girma",
         "Priya Nair",
@@ -51,7 +98,89 @@
         "Jamal Rahman",
         "Mateo Bello",
         "Ivan Nair",
-        "Bruk Haile"
+        "Bruk Haile",
+        "Mahlet Tadesse",
+        "Yoseph Bekele"
+      ],
+      "contact": {
+        "email": "hana.girma@gmail.com",
+        "telegram": "@youngcoders_et",
+        "phone": null
+      },
+      "status": "approved",
+      "publishedVersion": 2,
+      "submittedBy": {
+        "name": "Hana Girma",
+        "email": "hana.girma@gmail.com"
+      },
+      "createdAt": 1786528800000,
+      "versions": [
+        {
+          "name": "Young Coders Circle",
+          "description": "Weekly meetups where teenagers and beginners learn programming, build small projects and help each other with homework.",
+          "memberNames": [
+            "Hana Girma",
+            "Priya Nair",
+            "Chen Wei",
+            "Amina Yusuf",
+            "Sofia Marino",
+            "Leila Farah",
+            "Daniel Yusuf",
+            "Selam Reyes",
+            "Mira Alvarez",
+            "Aisha Kim",
+            "Bruk Ortega",
+            "Ivan Yusuf",
+            "Daniel Reyes",
+            "Uma Lindqvist",
+            "Tess Kowalski",
+            "Kofi Kim",
+            "Jamal Rahman",
+            "Mateo Bello",
+            "Ivan Nair",
+            "Bruk Haile"
+          ],
+          "contact": {
+            "email": "hana.girma@gmail.com",
+            "telegram": "@youngcoders_et",
+            "phone": null
+          },
+          "savedAt": 1786528800000
+        },
+        {
+          "name": "Young Coders Circle",
+          "description": "Weekly meetups where teenagers and beginners learn programming, build small projects and help each other with homework. New: Saturday robotics sessions for beginners.",
+          "memberNames": [
+            "Hana Girma",
+            "Priya Nair",
+            "Chen Wei",
+            "Amina Yusuf",
+            "Sofia Marino",
+            "Leila Farah",
+            "Daniel Yusuf",
+            "Selam Reyes",
+            "Mira Alvarez",
+            "Aisha Kim",
+            "Bruk Ortega",
+            "Ivan Yusuf",
+            "Daniel Reyes",
+            "Uma Lindqvist",
+            "Tess Kowalski",
+            "Kofi Kim",
+            "Jamal Rahman",
+            "Mateo Bello",
+            "Ivan Nair",
+            "Bruk Haile",
+            "Mahlet Tadesse",
+            "Yoseph Bekele"
+          ],
+          "contact": {
+            "email": "hana.girma@gmail.com",
+            "telegram": "@youngcoders_et",
+            "phone": null
+          },
+          "savedAt": 1787565600000
+        }
       ]
     },
     {
@@ -70,6 +199,44 @@
         "Aisha Kim",
         "Bruk Ortega",
         "Ivan Yusuf"
+      ],
+      "contact": {
+        "email": "marta.kebede@gmail.com",
+        "telegram": null,
+        "phone": "+251 911 000 103"
+      },
+      "status": "approved",
+      "publishedVersion": 1,
+      "submittedBy": {
+        "name": "Marta Kebede",
+        "email": "marta.kebede@gmail.com"
+      },
+      "createdAt": 1786960800000,
+      "versions": [
+        {
+          "name": "Green Hands Gardening",
+          "description": "Volunteers who turn empty lots into shared vegetable gardens and teach families how to grow their own food.",
+          "memberNames": [
+            "Marta Kebede",
+            "Joseph Okoro",
+            "Elena Petrova",
+            "Ibrahim Sani",
+            "Grace Mwangi",
+            "Noor Rahman",
+            "Daniel Yusuf",
+            "Selam Reyes",
+            "Mira Alvarez",
+            "Aisha Kim",
+            "Bruk Ortega",
+            "Ivan Yusuf"
+          ],
+          "contact": {
+            "email": "marta.kebede@gmail.com",
+            "telegram": null,
+            "phone": "+251 911 000 103"
+          },
+          "savedAt": 1786960800000
+        }
       ]
     },
     {
@@ -84,6 +251,40 @@
         "Abel Tesfaye",
         "Daniel Yusuf",
         "Selam Reyes"
+      ],
+      "contact": {
+        "email": null,
+        "telegram": "@booklovers_society",
+        "phone": null
+      },
+      "status": "pending",
+      "publishedVersion": null,
+      "submittedBy": {
+        "name": "Selam Haile",
+        "email": "selam.haile@gmail.com"
+      },
+      "createdAt": 1791108000000,
+      "versions": [
+        {
+          "name": "Book Lovers Society",
+          "description": "A monthly reading group that picks one book at a time, discusses it over tea, and runs a small free lending shelf.",
+          "memberNames": [
+            "Selam Haile",
+            "Oliver Grant",
+            "Fatima Zahra",
+            "Ravi Menon",
+            "Julia Weber",
+            "Abel Tesfaye",
+            "Daniel Yusuf",
+            "Selam Reyes"
+          ],
+          "contact": {
+            "email": null,
+            "telegram": "@booklovers_society",
+            "phone": null
+          },
+          "savedAt": 1791108000000
+        }
       ]
     },
     {
@@ -109,7 +310,85 @@
         "Mateo Bello",
         "Ivan Nair",
         "Bruk Haile",
-        "Mateo Amare"
+        "Nurse Helen Tadesse"
+      ],
+      "contact": {
+        "email": "rahel.assefa@gmail.com",
+        "telegram": "@chv_volunteers",
+        "phone": "+251 911 000 105"
+      },
+      "status": "pending",
+      "publishedVersion": 1,
+      "submittedBy": {
+        "name": "Dr. Rahel Assefa",
+        "email": "rahel.assefa@gmail.com"
+      },
+      "createdAt": 1787392800000,
+      "versions": [
+        {
+          "name": "Community Health Volunteers",
+          "description": "Trained volunteers who organize free blood-pressure checks, first-aid classes and health awareness days.",
+          "memberNames": [
+            "Dr. Rahel Assefa",
+            "Nurse Kofi Adjei",
+            "Meron Wolde",
+            "Ahmed Khalil",
+            "Sara Lindqvist",
+            "Daniel Yusuf",
+            "Selam Reyes",
+            "Mira Alvarez",
+            "Aisha Kim",
+            "Bruk Ortega",
+            "Ivan Yusuf",
+            "Daniel Reyes",
+            "Uma Lindqvist",
+            "Tess Kowalski",
+            "Kofi Kim",
+            "Jamal Rahman",
+            "Mateo Bello",
+            "Ivan Nair",
+            "Bruk Haile",
+            "Mateo Amare"
+          ],
+          "contact": {
+            "email": "rahel.assefa@gmail.com",
+            "telegram": null,
+            "phone": "+251 911 000 105"
+          },
+          "savedAt": 1787392800000
+        },
+        {
+          "name": "Community Health Volunteers",
+          "description": "Trained volunteers who organize free blood-pressure checks, first-aid classes and health awareness days.",
+          "memberNames": [
+            "Dr. Rahel Assefa",
+            "Nurse Kofi Adjei",
+            "Meron Wolde",
+            "Ahmed Khalil",
+            "Sara Lindqvist",
+            "Daniel Yusuf",
+            "Selam Reyes",
+            "Mira Alvarez",
+            "Aisha Kim",
+            "Bruk Ortega",
+            "Ivan Yusuf",
+            "Daniel Reyes",
+            "Uma Lindqvist",
+            "Tess Kowalski",
+            "Kofi Kim",
+            "Jamal Rahman",
+            "Mateo Bello",
+            "Ivan Nair",
+            "Bruk Haile",
+            "Nurse Helen Tadesse"
+          ],
+          "contact": {
+            "email": "rahel.assefa@gmail.com",
+            "telegram": "@chv_volunteers",
+            "phone": "+251 911 000 105"
+          },
+          "savedAt": 1791194400000
+        }
       ]
     },
     {
@@ -155,7 +434,179 @@
         "Mira Fischer",
         "Amir Costa",
         "Zara Kowalski",
-        "Zara Ortega"
+        "Zara Ortega",
+        "Eyasu Teshome"
+      ],
+      "contact": {
+        "email": "tigist.mulugeta@gmail.com",
+        "telegram": "@market_traders",
+        "phone": "+251 911 000 106"
+      },
+      "status": "approved",
+      "publishedVersion": 3,
+      "submittedBy": {
+        "name": "Tigist Mulugeta",
+        "email": "tigist.mulugeta@gmail.com"
+      },
+      "createdAt": 1787824800000,
+      "versions": [
+        {
+          "name": "Market Traders Association",
+          "description": "A support group for local market sellers offering shared savings, bulk purchasing and help with licences.",
+          "memberNames": [
+            "Tigist Mulugeta",
+            "Bashir Omar",
+            "Rosa Martinez",
+            "Abdul Karim",
+            "Chidi Eze",
+            "Helen Getachew",
+            "Musa Diallo",
+            "Daniel Yusuf",
+            "Selam Reyes",
+            "Mira Alvarez",
+            "Aisha Kim",
+            "Bruk Ortega",
+            "Ivan Yusuf",
+            "Daniel Reyes",
+            "Uma Lindqvist",
+            "Tess Kowalski",
+            "Kofi Kim",
+            "Jamal Rahman",
+            "Mateo Bello",
+            "Ivan Nair",
+            "Bruk Haile",
+            "Mateo Amare",
+            "Victor Nair",
+            "Uma Berg",
+            "Rosa Alvarez",
+            "Nia Amare",
+            "Omar Haile",
+            "Aisha Fischer",
+            "Gita Sato",
+            "Priya Alvarez",
+            "Felix Bello",
+            "Sami Ortega",
+            "Zara Alvarez",
+            "Hana Rahman",
+            "Eden Bello",
+            "Ivan Kim",
+            "Mira Fischer",
+            "Amir Costa",
+            "Zara Kowalski",
+            "Zara Ortega"
+          ],
+          "contact": {
+            "email": "tigist.mulugeta@gmail.com",
+            "telegram": null,
+            "phone": null
+          },
+          "savedAt": 1787824800000
+        },
+        {
+          "name": "Market Traders Association",
+          "description": "A support group for local market sellers offering shared savings and bulk purchasing.",
+          "memberNames": [
+            "Tigist Mulugeta",
+            "Bashir Omar",
+            "Rosa Martinez",
+            "Abdul Karim",
+            "Chidi Eze",
+            "Helen Getachew",
+            "Musa Diallo",
+            "Daniel Yusuf",
+            "Selam Reyes",
+            "Mira Alvarez",
+            "Aisha Kim",
+            "Bruk Ortega",
+            "Ivan Yusuf",
+            "Daniel Reyes",
+            "Uma Lindqvist",
+            "Tess Kowalski",
+            "Kofi Kim",
+            "Jamal Rahman",
+            "Mateo Bello",
+            "Ivan Nair",
+            "Bruk Haile",
+            "Mateo Amare",
+            "Victor Nair",
+            "Uma Berg",
+            "Rosa Alvarez",
+            "Nia Amare",
+            "Omar Haile",
+            "Aisha Fischer",
+            "Gita Sato",
+            "Priya Alvarez",
+            "Felix Bello",
+            "Sami Ortega",
+            "Zara Alvarez",
+            "Hana Rahman",
+            "Eden Bello",
+            "Ivan Kim",
+            "Mira Fischer",
+            "Amir Costa",
+            "Zara Kowalski",
+            "Zara Ortega"
+          ],
+          "contact": {
+            "email": "tigist.mulugeta@gmail.com",
+            "telegram": "@market_traders",
+            "phone": null
+          },
+          "savedAt": 1788688800000
+        },
+        {
+          "name": "Market Traders Association",
+          "description": "A support group for local market sellers offering shared savings, bulk purchasing and help with licences.",
+          "memberNames": [
+            "Tigist Mulugeta",
+            "Bashir Omar",
+            "Rosa Martinez",
+            "Abdul Karim",
+            "Chidi Eze",
+            "Helen Getachew",
+            "Musa Diallo",
+            "Daniel Yusuf",
+            "Selam Reyes",
+            "Mira Alvarez",
+            "Aisha Kim",
+            "Bruk Ortega",
+            "Ivan Yusuf",
+            "Daniel Reyes",
+            "Uma Lindqvist",
+            "Tess Kowalski",
+            "Kofi Kim",
+            "Jamal Rahman",
+            "Mateo Bello",
+            "Ivan Nair",
+            "Bruk Haile",
+            "Mateo Amare",
+            "Victor Nair",
+            "Uma Berg",
+            "Rosa Alvarez",
+            "Nia Amare",
+            "Omar Haile",
+            "Aisha Fischer",
+            "Gita Sato",
+            "Priya Alvarez",
+            "Felix Bello",
+            "Sami Ortega",
+            "Zara Alvarez",
+            "Hana Rahman",
+            "Eden Bello",
+            "Ivan Kim",
+            "Mira Fischer",
+            "Amir Costa",
+            "Zara Kowalski",
+            "Zara Ortega",
+            "Eyasu Teshome"
+          ],
+          "contact": {
+            "email": "tigist.mulugeta@gmail.com",
+            "telegram": "@market_traders",
+            "phone": "+251 911 000 106"
+          },
+          "savedAt": 1789552800000
+        }
       ]
     },
     {
@@ -168,6 +619,38 @@
         "Papa Joaquim",
         "Grandma Ingrid",
         "Daniel Yusuf"
+      ],
+      "contact": {
+        "email": null,
+        "telegram": null,
+        "phone": "+251 911 000 107"
+      },
+      "status": "pending",
+      "publishedVersion": null,
+      "submittedBy": {
+        "name": "Ato Getachew Bayu",
+        "email": "getachew.bayu@gmail.com"
+      },
+      "createdAt": 1791194400000,
+      "versions": [
+        {
+          "name": "Elders Storytelling Circle",
+          "description": "Older residents gather to share stories, songs and traditions with younger people to keep local history alive.",
+          "memberNames": [
+            "Ato Getachew Bayu",
+            "Woizero Almaz Desta",
+            "Mama Zawadi",
+            "Papa Joaquim",
+            "Grandma Ingrid",
+            "Daniel Yusuf"
+          ],
+          "contact": {
+            "email": null,
+            "telegram": null,
+            "phone": "+251 911 000 107"
+          },
+          "savedAt": 1791194400000
+        }
       ]
     },
     {
@@ -189,6 +672,47 @@
         "Daniel Reyes",
         "Uma Lindqvist",
         "Tess Kowalski"
+      ],
+      "contact": {
+        "email": "mulu.berhanu@gmail.com",
+        "telegram": null,
+        "phone": null
+      },
+      "status": "approved",
+      "publishedVersion": 1,
+      "submittedBy": {
+        "name": "Mulu Berhanu",
+        "email": "mulu.berhanu@gmail.com"
+      },
+      "createdAt": 1788256800000,
+      "versions": [
+        {
+          "name": "Night School Learners",
+          "description": "Free evening classes in reading, writing and basic maths for adults who want to finish their education.",
+          "memberNames": [
+            "Mulu Berhanu",
+            "Peter Njoroge",
+            "Aisha Bello",
+            "Carlos Ortega",
+            "Zeynep Kaya",
+            "Dawit Solomon",
+            "Daniel Yusuf",
+            "Selam Reyes",
+            "Mira Alvarez",
+            "Aisha Kim",
+            "Bruk Ortega",
+            "Ivan Yusuf",
+            "Daniel Reyes",
+            "Uma Lindqvist",
+            "Tess Kowalski"
+          ],
+          "contact": {
+            "email": "mulu.berhanu@gmail.com",
+            "telegram": null,
+            "phone": null
+          },
+          "savedAt": 1788256800000
+        }
       ]
     },
     {
@@ -235,6 +759,72 @@
         "Amir Costa",
         "Zara Kowalski",
         "Zara Ortega"
+      ],
+      "contact": {
+        "email": "biniam.fikru@gmail.com",
+        "telegram": "@cleanstreets_et",
+        "phone": "+251 911 000 109"
+      },
+      "status": "approved",
+      "publishedVersion": 1,
+      "submittedBy": {
+        "name": "Biniam Fikru",
+        "email": "biniam.fikru@gmail.com"
+      },
+      "createdAt": 1788429600000,
+      "versions": [
+        {
+          "name": "Clean Streets Initiative",
+          "description": "Neighbors who organize monthly clean-up days, set up recycling points and plant trees along main roads.",
+          "memberNames": [
+            "Biniam Fikru",
+            "Lina Haddad",
+            "Thomas Baker",
+            "Nadia Ibrahim",
+            "Eyob Kassa",
+            "Mei Lin",
+            "Yusuf Demir",
+            "Daniel Yusuf",
+            "Selam Reyes",
+            "Mira Alvarez",
+            "Aisha Kim",
+            "Bruk Ortega",
+            "Ivan Yusuf",
+            "Daniel Reyes",
+            "Uma Lindqvist",
+            "Tess Kowalski",
+            "Kofi Kim",
+            "Jamal Rahman",
+            "Mateo Bello",
+            "Ivan Nair",
+            "Bruk Haile",
+            "Mateo Amare",
+            "Victor Nair",
+            "Uma Berg",
+            "Rosa Alvarez",
+            "Nia Amare",
+            "Omar Haile",
+            "Aisha Fischer",
+            "Gita Sato",
+            "Priya Alvarez",
+            "Felix Bello",
+            "Sami Ortega",
+            "Zara Alvarez",
+            "Hana Rahman",
+            "Eden Bello",
+            "Ivan Kim",
+            "Mira Fischer",
+            "Amir Costa",
+            "Zara Kowalski",
+            "Zara Ortega"
+          ],
+          "contact": {
+            "email": "biniam.fikru@gmail.com",
+            "telegram": "@cleanstreets_et",
+            "phone": "+251 911 000 109"
+          },
+          "savedAt": 1788429600000
+        }
       ]
     },
     {
@@ -251,6 +841,43 @@
         "Selam Reyes",
         "Mira Alvarez",
         "Aisha Kim"
+      ],
+      "contact": {
+        "email": null,
+        "telegram": "@local_artists_col",
+        "phone": null
+      },
+      "status": "declined",
+      "reason": "We could not reach this Telegram handle. Please re-submit with an email or phone number too.",
+      "publishedVersion": null,
+      "submittedBy": {
+        "name": "Liya Abraham",
+        "email": "liya.abraham@gmail.com"
+      },
+      "createdAt": 1790244000000,
+      "versions": [
+        {
+          "name": "Local Artists Collective",
+          "description": "Painters, musicians and craftspeople who run open studio days and small exhibitions for the neighborhood.",
+          "memberNames": [
+            "Liya Abraham",
+            "Marco Bellini",
+            "Ngozi Adeyemi",
+            "Kofi Boateng",
+            "Amara Diop",
+            "Rina Sato",
+            "Daniel Yusuf",
+            "Selam Reyes",
+            "Mira Alvarez",
+            "Aisha Kim"
+          ],
+          "contact": {
+            "email": null,
+            "telegram": "@local_artists_col",
+            "phone": null
+          },
+          "savedAt": 1790244000000
+        }
       ]
     },
     {
@@ -277,6 +904,52 @@
         "Jamal Rahman",
         "Mateo Bello",
         "Ivan Nair"
+      ],
+      "contact": {
+        "email": null,
+        "telegram": null,
+        "phone": "+251 911 000 111"
+      },
+      "status": "approved",
+      "publishedVersion": 1,
+      "submittedBy": {
+        "name": "Genet Tsegaye",
+        "email": "genet.tsegaye@gmail.com"
+      },
+      "createdAt": 1788688800000,
+      "versions": [
+        {
+          "name": "Women's Savings Group",
+          "description": "A women-led savings and loan group that helps members start and grow small businesses.",
+          "memberNames": [
+            "Genet Tsegaye",
+            "Blessing Okafor",
+            "Maria Lopez",
+            "Halima Abdi",
+            "Sana Malik",
+            "Tsehay Worku",
+            "Esther Mutua",
+            "Daniel Yusuf",
+            "Selam Reyes",
+            "Mira Alvarez",
+            "Aisha Kim",
+            "Bruk Ortega",
+            "Ivan Yusuf",
+            "Daniel Reyes",
+            "Uma Lindqvist",
+            "Tess Kowalski",
+            "Kofi Kim",
+            "Jamal Rahman",
+            "Mateo Bello",
+            "Ivan Nair"
+          ],
+          "contact": {
+            "email": null,
+            "telegram": null,
+            "phone": "+251 911 000 111"
+          },
+          "savedAt": 1788688800000
+        }
       ]
     },
     {
@@ -297,6 +970,46 @@
         "Ivan Yusuf",
         "Daniel Reyes",
         "Uma Lindqvist"
+      ],
+      "contact": {
+        "email": "robel.hailu@gmail.com",
+        "telegram": "@cycling_dessie",
+        "phone": null
+      },
+      "status": "pending",
+      "publishedVersion": null,
+      "submittedBy": {
+        "name": "Robel Hailu",
+        "email": "robel.hailu@gmail.com"
+      },
+      "createdAt": 1791021600000,
+      "versions": [
+        {
+          "name": "Cycling Enthusiasts",
+          "description": "Weekend group rides, bike repair workshops and a campaign for safer cycling lanes.",
+          "memberNames": [
+            "Robel Hailu",
+            "Jonas Berg",
+            "Camila Reyes",
+            "Idris Musa",
+            "Anna Kowalski",
+            "Tewodros Nega",
+            "Daniel Yusuf",
+            "Selam Reyes",
+            "Mira Alvarez",
+            "Aisha Kim",
+            "Bruk Ortega",
+            "Ivan Yusuf",
+            "Daniel Reyes",
+            "Uma Lindqvist"
+          ],
+          "contact": {
+            "email": "robel.hailu@gmail.com",
+            "telegram": "@cycling_dessie",
+            "phone": null
+          },
+          "savedAt": 1791021600000
+        }
       ]
     },
     {
@@ -322,7 +1035,87 @@
         "Kofi Kim",
         "Jamal Rahman",
         "Mateo Bello",
-        "Ivan Nair"
+        "Ivan Nair",
+        "Rediet Alemu"
+      ],
+      "contact": {
+        "email": "bethlehem.assefa@gmail.com",
+        "telegram": null,
+        "phone": "+251 911 000 113"
+      },
+      "status": "approved",
+      "publishedVersion": 2,
+      "submittedBy": {
+        "name": "Bethlehem Assefa",
+        "email": "bethlehem.assefa@gmail.com"
+      },
+      "createdAt": 1789120800000,
+      "versions": [
+        {
+          "name": "Youth Debate League",
+          "description": "Students practice public speaking and debating on local issues, with friendly tournaments between schools.",
+          "memberNames": [
+            "Bethlehem Assefa",
+            "Ethan Brooks",
+            "Zainab Ali",
+            "Diego Alvarez",
+            "Mia Fischer",
+            "Kidus Mekonnen",
+            "Farida Nasser",
+            "Daniel Yusuf",
+            "Selam Reyes",
+            "Mira Alvarez",
+            "Aisha Kim",
+            "Bruk Ortega",
+            "Ivan Yusuf",
+            "Daniel Reyes",
+            "Uma Lindqvist",
+            "Tess Kowalski",
+            "Kofi Kim",
+            "Jamal Rahman",
+            "Mateo Bello",
+            "Ivan Nair"
+          ],
+          "contact": {
+            "email": "bethlehem.assefa@gmail.com",
+            "telegram": null,
+            "phone": "+251 911 000 113"
+          },
+          "savedAt": 1789120800000
+        },
+        {
+          "name": "Youth Debate League",
+          "description": "Students practice public speaking and debating on local issues, with friendly tournaments between schools.",
+          "memberNames": [
+            "Bethlehem Assefa",
+            "Ethan Brooks",
+            "Zainab Ali",
+            "Diego Alvarez",
+            "Mia Fischer",
+            "Kidus Mekonnen",
+            "Farida Nasser",
+            "Daniel Yusuf",
+            "Selam Reyes",
+            "Mira Alvarez",
+            "Aisha Kim",
+            "Bruk Ortega",
+            "Ivan Yusuf",
+            "Daniel Reyes",
+            "Uma Lindqvist",
+            "Tess Kowalski",
+            "Kofi Kim",
+            "Jamal Rahman",
+            "Mateo Bello",
+            "Ivan Nair",
+            "Rediet Alemu"
+          ],
+          "contact": {
+            "email": "bethlehem.assefa@gmail.com",
+            "telegram": null,
+            "phone": "+251 911 000 113"
+          },
+          "savedAt": 1789812000000
+        }
       ]
     },
     {
@@ -338,6 +1131,42 @@
         "Selam Reyes",
         "Mira Alvarez",
         "Aisha Kim"
+      ],
+      "contact": {
+        "email": null,
+        "telegram": "@nwatch_area",
+        "phone": null
+      },
+      "status": "declined",
+      "reason": "Member list looks incomplete. Please add the full list of members and re-submit.",
+      "publishedVersion": null,
+      "submittedBy": {
+        "name": "Yared Tekle",
+        "email": "yared.tekle@gmail.com"
+      },
+      "createdAt": 1790503200000,
+      "versions": [
+        {
+          "name": "Neighborhood Watch",
+          "description": "Residents who look out for one another, share safety tips and keep an emergency contact list for the area.",
+          "memberNames": [
+            "Yared Tekle",
+            "Patricia Mwale",
+            "Hassan Jama",
+            "Olga Ivanova",
+            "Bruk Tadele",
+            "Daniel Yusuf",
+            "Selam Reyes",
+            "Mira Alvarez",
+            "Aisha Kim"
+          ],
+          "contact": {
+            "email": null,
+            "telegram": "@nwatch_area",
+            "phone": null
+          },
+          "savedAt": 1790503200000
+        }
       ]
     },
     {
@@ -351,6 +1180,39 @@
         "Ines Duarte",
         "Mahlet Girma",
         "Daniel Yusuf"
+      ],
+      "contact": {
+        "email": null,
+        "telegram": null,
+        "phone": "+251 911 000 115"
+      },
+      "status": "pending",
+      "publishedVersion": null,
+      "submittedBy": {
+        "name": "Abenet Lemma",
+        "email": "abenet.lemma@gmail.com"
+      },
+      "createdAt": 1791194400000,
+      "versions": [
+        {
+          "name": "Traditional Music Ensemble",
+          "description": "A group preserving traditional instruments and songs, performing at weddings, holidays and community events.",
+          "memberNames": [
+            "Abenet Lemma",
+            "Kaleb Worku",
+            "Sara Belay",
+            "Tunde Bakare",
+            "Ines Duarte",
+            "Mahlet Girma",
+            "Daniel Yusuf"
+          ],
+          "contact": {
+            "email": null,
+            "telegram": null,
+            "phone": "+251 911 000 115"
+          },
+          "savedAt": 1791194400000
+        }
       ]
     },
     {
@@ -397,6 +1259,72 @@
         "Mira Fischer",
         "Amir Costa",
         "Zara Kowalski"
+      ],
+      "contact": {
+        "email": "frehiwot.alemayehu@gmail.com",
+        "telegram": "@foodbank_sat",
+        "phone": "+251 911 000 116"
+      },
+      "status": "approved",
+      "publishedVersion": 1,
+      "submittedBy": {
+        "name": "Frehiwot Alemayehu",
+        "email": "frehiwot.alemayehu@gmail.com"
+      },
+      "createdAt": 1789552800000,
+      "versions": [
+        {
+          "name": "Food Bank Volunteers",
+          "description": "Volunteers who collect, sort and deliver food parcels to families in need every Saturday.",
+          "memberNames": [
+            "Frehiwot Alemayehu",
+            "Michael Osei",
+            "Yasmin Saeed",
+            "David Kim",
+            "Lulit Bekele",
+            "Pedro Silva",
+            "Tsion Melaku",
+            "Hawi Jemal",
+            "Daniel Yusuf",
+            "Selam Reyes",
+            "Mira Alvarez",
+            "Aisha Kim",
+            "Bruk Ortega",
+            "Ivan Yusuf",
+            "Daniel Reyes",
+            "Uma Lindqvist",
+            "Tess Kowalski",
+            "Kofi Kim",
+            "Jamal Rahman",
+            "Mateo Bello",
+            "Ivan Nair",
+            "Bruk Haile",
+            "Mateo Amare",
+            "Victor Nair",
+            "Uma Berg",
+            "Rosa Alvarez",
+            "Nia Amare",
+            "Omar Haile",
+            "Aisha Fischer",
+            "Gita Sato",
+            "Priya Alvarez",
+            "Felix Bello",
+            "Sami Ortega",
+            "Zara Alvarez",
+            "Hana Rahman",
+            "Eden Bello",
+            "Ivan Kim",
+            "Mira Fischer",
+            "Amir Costa",
+            "Zara Kowalski"
+          ],
+          "contact": {
+            "email": "frehiwot.alemayehu@gmail.com",
+            "telegram": "@foodbank_sat",
+            "phone": "+251 911 000 116"
+          },
+          "savedAt": 1789552800000
+        }
       ]
     }
   ]
